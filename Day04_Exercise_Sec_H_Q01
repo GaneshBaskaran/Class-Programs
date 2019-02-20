@@ -1,0 +1,19 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		  bool isNumeric = false;
+            do
+            {
+                Console.Write("Enter a number:");
+                String value = Console.ReadLine();
+                int n;
+                isNumeric = int.TryParse(value, out n);
+
+            } while (isNumeric == false);
+            Console.WriteLine("It is an Integer");
+
+	}
+}

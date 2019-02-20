@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Day04_Sec_F_Q_01
+    {
+        static void Main(string[] args)
+        {
+            String[] salesMonth = new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            int[] sales = new int[12];
+            //sales.notnum
+            for (int i = 0; i < 12; i++)
+            {
+                Console.Write($"Enter {salesMonth[i]} data :");
+                sales[i] = int.Parse(Console.ReadLine());
+            }
+            //int Avg = 0;
+            Console.WriteLine("Enter your Option: \n 1. All 12 Months Data \n 2. Average of 1 Year Sales \n 3. Minimum of Sale \n 4. Maximum of  Sale");
+            int n = int.Parse(Console.ReadLine());
+            if (n == 1)
+            {
+                PrintData(salesMonth, sales);
+            }
+            else if (n == 2)
+            {
+                AvgOfSales(sales);
+            }
+            else if (n == 3)
+            {
+                MinOfSales(sales, salesMonth);
+                Console.WriteLine($"The Minimum of sales value is  {sales[0]} for the month {salesMonth[0]}");
+            }
+            else if (n == 4)
+            {
+                MinOfSales(sales, salesMonth);
+                Console.WriteLine($"The Minimum of sales value is  {sales[11]} for the month {salesMonth[11]}");
+            }
+
+        }
+        static void PrintData(String[] salesMonth, int[] sales)
+        {
+
+            for (int i = 0; i < 12; i++)
+            {
+                Console.WriteLine(salesMonth[i] + "\t" + sales[i]);
+            }
+        }
+        static void AvgOfSales(int[] sales)
+        {
+            int Avg = 0;
+            for (int i = 0; i< 12; i++)
+            {
+                Avg = Avg + sales[i];
+            }
+             Console.WriteLine("The Average of Sales "+Avg/12);
+
+        }
+        static void MinOfSales(int[] sales, String[] salesMonth)
+            {
+                for (int i = 0; i < 11; i++)
+                {
+                    for (int j = i + 1; j <= 11; j++)
+                    {
+                        if (sales[i] > sales[j])
+                        {
+                            int temp = sales[i];
+                            sales[i] = sales[j];
+                            sales[j] = temp;
+
+                            String temp1 = salesMonth[i];
+                            salesMonth[i] = salesMonth[j];
+                            salesMonth[j] = temp1;
+
+
+                        }
+                    }
+
+                }
+           
+
+            
+            }
+
+        
+
+    }
+
+    }
+
+
+         
